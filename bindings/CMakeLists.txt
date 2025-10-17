@@ -1,5 +1,5 @@
 add_library(pylibredwgcpp pylib.cpp)
-target_link_libraries(pylibredwgcpp PRIVATE libredwg_cpp_lib)
+target_link_libraries(pylibredwgcpp PRIVATE libredwg_cpp)
 
 
 include(GNUInstallDirs)
