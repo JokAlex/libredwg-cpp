@@ -1,3 +1,7 @@
 [submodule "lib/libredwg"]
 	path = lib/libredwg
 	url = https://github.com/LibreDWG/libredwg.git
+[submodule "bindings/pybind11"]
+	path = bindings/pybind11
+	url = https://github.com/pybind/pybind11.git
+	branch = stable
