@@ -5,7 +5,7 @@
 namespace libredwg {
 
 struct SaveOptions {
-  Version targetVersion = Version::R2000;
+  Version targetVersion = Version::R_2000;
   bool minimal = false;
   bool overwrite = false;
 };

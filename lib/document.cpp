@@ -1,10 +1,12 @@
 #include <libredwg_cpp/document.hpp>
-
 #include <libredwg_cpp/error.hpp>
 
-#include <config.h>
+#include "bits.h"
 #include <dwg.h>
-#include <out_dxf.h>
+
+extern "C" {
+int dwg_write_dxf(Bit_Chain *dat, Dwg_Data *dwg);
+}
 
 namespace {
 struct FilePtrDeleter final {
@@ -23,7 +25,7 @@ void Document::ImplDeleter::operator()(Impl *impl) const noexcept {
 Document::~Document() = default;
 
 Document Document::open(const std::string &path) {
-  ImplPtr impl;
+  ImplPtr impl(new Impl);
   memset(impl.get(), 0, sizeof(Impl));
 
   auto error = dwg_read_file(path.c_str(), impl.get());
@@ -68,7 +70,7 @@ void Document::writeDxf(const std::string &path,
   }
 }
 
-Version Document::getVersion() const noexcept {
+Version Document::version() const noexcept {
   return static_cast<Version>(mImpl->header.version);
 }
 

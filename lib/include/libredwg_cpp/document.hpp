@@ -11,13 +11,16 @@ namespace libredwg {
 
 class LIBREDWG_CPP_EXPORT Document final {
 public:
+  Document(Document&&) noexcept = default;
   ~Document();
+
+  Document& operator = (Document&&) noexcept = default;
 
   static Document open(const std::string& path);
 
   void writeDxf(const std::string& path, const SaveOptions &opts) const;
 
-  Version getVersion() const noexcept;
+  Version version() const noexcept;
 
 private:
   class Impl;
