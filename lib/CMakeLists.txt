@@ -8,11 +8,13 @@ add_subdirectory(libredwg)
 add_library(libredwg_cpp ${SOURCES})
 target_link_libraries(libredwg_cpp PRIVATE redwg)
 
+set_target_properties(libredwg_cpp PROPERTIES INSTALL_RPATH "$ORIGIN")
+
 include(GenerateExportHeader)
 set(export_file_name "libredwg_cpp_export_shared.hpp")
 generate_export_header(libredwg_cpp EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/include/${export_file_name}")
 
-SET(LIBREDWG_CPP_PUBLIC_HEADERS_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(LIBREDWG_CPP_PUBLIC_HEADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
 target_include_directories(libredwg_cpp
     PUBLIC
@@ -28,11 +30,10 @@ target_include_directories(libredwg_cpp
 
 include(GNUInstallDirs)
 
-install(TARGETS libredwg_cpp
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-)
-
-install(DIRECTORY ${LIBREDWG_CPP_PUBLIC_HEADERS_DIR}/libredwg_cpp
-    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+install(TARGETS libredwg_cpp EXPORT mylib_export
+    RUNTIME COMPONENT libredwg_cpp
+    LIBRARY COMPONENT libredwg_cpp NAMELINK_COMPONENT libredwg_cpp-dev
+    ARCHIVE COMPONENT libredwg_cpp-dev
+    PUBLIC_HEADER COMPONENT libredwg_cpp-dev
+        DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )
