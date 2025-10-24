@@ -8,20 +8,11 @@
 PYBIND11_MODULE(pylibredwgcpp, m) {
   m.doc() = "Python bindings for libredwg-cpp";
 
-  pybind11::class_<libredwg::SaveOptions>(m, "SaveOptions")
-      .def(pybind11::init<>())
-      .def(pybind11::init<libredwg::Version, bool, bool>(),
-           pybind11::arg("target_version"), pybind11::arg("minimal"),
-           pybind11::arg("overwrite"))
-      .def_readwrite("target_version", &libredwg::SaveOptions::targetVersion)
-      .def_readwrite("minimal", &libredwg::SaveOptions::minimal)
-      .def_readwrite("overwrite", &libredwg::SaveOptions::overwrite);
-
   pybind11::class_<libredwg::Document>(m, "Document")
       .def_static("open", &libredwg::Document::open,
                   pybind11::arg("path_to_dwg"))
       .def("write_dxf", &libredwg::Document::writeDxf,
-           pybind11::arg("path_to_dxf"), pybind11::arg("options"))
+           pybind11::arg("path_to_dxf"))
       .def("version", &libredwg::Document::version);
 
   auto libredwgErrorHandle =

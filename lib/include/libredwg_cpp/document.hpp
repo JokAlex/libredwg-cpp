@@ -3,7 +3,6 @@
 #include <memory>
 #include <string>
 
-#include <libredwg_cpp/save_options.hpp>
 #include <libredwg_cpp/version.hpp>
 #include <libredwg_cpp_export_shared.hpp>
 
@@ -18,7 +17,7 @@ public:
 
   static Document open(const std::string& path);
 
-  void writeDxf(const std::string& path, const SaveOptions &opts) const;
+  void writeDxf(const std::string& path) const;
 
   Version version() const noexcept;
 
