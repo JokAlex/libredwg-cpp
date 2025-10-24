@@ -4,7 +4,7 @@
 #include "bits.h"
 #include <dwg.h>
 
-extern "C" {
+extern "C" {  // for correct linkage with the non-interface part of LibreDWG
 int dwg_write_dxf(Bit_Chain *dat, Dwg_Data *dwg);
 }
 
@@ -43,7 +43,7 @@ Document Document::open(const std::string &path) {
   case DWG_ERR_IOERROR:
     throw IOError("Cannot read the given DWG file");
   case DWG_ERR_OUTOFMEM:
-    throw MemoryError("Out of memory during DWG file reading");
+    throw std::bad_alloc();
   }
   return Document(std::move(impl));
 }
@@ -65,7 +65,7 @@ void Document::writeDxf(const std::string &path) const {
   case DWG_ERR_IOERROR:
     throw IOError("Cannot write to the given DXF file");
   case DWG_ERR_OUTOFMEM:
-    throw MemoryError("Out of memory during DXF file writing");
+    throw std::bad_alloc();
   }
 }
 
