@@ -48,8 +48,7 @@ Document Document::open(const std::string &path) {
   return Document(std::move(impl));
 }
 
-void Document::writeDxf(const std::string &path,
-                        const SaveOptions &opts) const {
+void Document::writeDxf(const std::string &path) const {
   Bit_Chain dat = {0};
   dat.version = mImpl->header.version;
   dat.from_version = mImpl->header.from_version;
