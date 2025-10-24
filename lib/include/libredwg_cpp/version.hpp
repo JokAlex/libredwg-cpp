@@ -55,4 +55,4 @@ enum class Version : std::uint32_t {
   R_AFTER   = Dwg_Version_Type::R_AFTER,
 };
 
-}
+} // namespace libredwg

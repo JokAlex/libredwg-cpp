@@ -13,24 +13,24 @@ namespace libredwg {
  */
 class LIBREDWG_CPP_EXPORT Document final {
 public:
-  Document(Document&&) noexcept = default;
+  Document(Document &&) noexcept = default;
   ~Document();
 
-  Document& operator = (Document&&) noexcept = default;
+  Document &operator=(Document &&) noexcept = default;
 
   /**
    * Opens an existing DWG file specified by path.
    * \param path path to the DWG file.
    * \returns new document, linked to the given DWG file.
    */
-  static Document open(const std::string& path);
+  static Document open(const std::string &path);
 
   /**
-   * Converts document to DXF format and writes it to the file specified by path. If
-   * file does not exist, this method will create a new one.
+   * Converts document to DXF format and writes it to the file specified by
+   * path. If file does not exist, this method will create a new one.
    * \param path path to the DXF file.
    */
-  void writeDxf(const std::string& path) const;
+  void writeDxf(const std::string &path) const;
 
   /**
    * Returns version of the document.

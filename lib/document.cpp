@@ -4,7 +4,7 @@
 #include "bits.h"
 #include <dwg.h>
 
-extern "C" {  // for correct linkage with the non-interface part of LibreDWG
+extern "C" { // for correct linkage with the non-interface part of LibreDWG
 int dwg_write_dxf(Bit_Chain *dat, Dwg_Data *dwg);
 }
 
