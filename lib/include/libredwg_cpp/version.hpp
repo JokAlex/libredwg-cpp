@@ -5,6 +5,9 @@
 
 namespace libredwg {
 
+/**
+ * Version of DWG document. Corresponds to the LibreDWG enum Dwg_Version_Type.
+ */
 enum class Version : std::uint32_t {
   INVALID   = Dwg_Version_Type::R_INVALID,
   R_1_1     = Dwg_Version_Type::R_1_1,

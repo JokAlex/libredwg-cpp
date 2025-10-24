@@ -25,8 +25,6 @@ PYBIND11_MODULE(pylibredwgcpp, m) {
       m, "UnsupportedError", libredwgErrorHandle);
   pybind11::register_exception<libredwg::ValidationError>(m, "ValidationError",
                                                           libredwgErrorHandle);
-  pybind11::register_exception<libredwg::MemoryError>(m, "MemoryError",
-                                                      libredwgErrorHandle);
   pybind11::register_exception<libredwg::InternalError>(m, "InternalError",
                                                         libredwgErrorHandle);
 
