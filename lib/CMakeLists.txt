@@ -6,7 +6,7 @@ set(LIBREDWG_LIBONLY ON)
 add_subdirectory(libredwg)
 
 add_library(libredwg_cpp ${SOURCES})
-target_link_libraries(libredwg_cpp PRIVATE redwg)
+target_link_libraries(libredwg_cpp PUBLIC redwg)
 
 set_target_properties(libredwg_cpp PROPERTIES INSTALL_RPATH "$ORIGIN")
 
