@@ -8,13 +8,6 @@
 PYBIND11_MODULE(pylibredwgcpp, m) {
   m.doc() = "Python bindings for libredwg-cpp";
 
-  pybind11::class_<libredwg::Document>(m, "Document")
-      .def_static("open", &libredwg::Document::open,
-                  pybind11::arg("path_to_dwg"))
-      .def("write_dxf", &libredwg::Document::writeDxf,
-           pybind11::arg("path_to_dxf"))
-      .def("version", &libredwg::Document::version);
-
   auto libredwgErrorHandle =
       pybind11::register_exception<libredwg::Error>(m, "Error");
   pybind11::register_exception<libredwg::IOError>(m, "IOError",
@@ -54,6 +47,12 @@ PYBIND11_MODULE(pylibredwgcpp, m) {
       .value("R_2010", libredwg::Version::R_2010)
       .value("R_2013", libredwg::Version::R_2013)
       .value("R_2018", libredwg::Version::R_2018)
-      .value("R_AFTER", libredwg::Version::R_AFTER)
-      .export_values();
+      .value("R_AFTER", libredwg::Version::R_AFTER);
+
+  pybind11::class_<libredwg::Document>(m, "Document")
+      .def_static("open", &libredwg::Document::open,
+                  pybind11::arg("path_to_dwg"))
+      .def("write_dxf", &libredwg::Document::writeDxf,
+           pybind11::arg("path_to_dxf"))
+      .def("version", &libredwg::Document::version);
 }
