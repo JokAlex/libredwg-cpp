@@ -49,5 +49,8 @@ bld/
 __pycache__
 .pytest_cache
 
+# Python virtual environment directories
+env
+
 # Tests output datadir
 tests/out_data/
