@@ -2,12 +2,21 @@
 C++ Wrapper around LibreDWG C library - free implementation of the DWG file format.
 LibreDWG-Cpp allows to convert DWG file to DXF.
 Also, LibreDWG-Cpp provides a Python API.
-## Installation of Stubgen
-To generate .pyi library interface file, install pybind11-stubgen:
+## Installation to Virtualenv
+1. Install dependecies:
+```
+    build-essential
+    cmake
+```
+2. Create virtualenv, activate it and install the package there:
 ```bash
 $ python3 -m venv env
 $ source env/bin/activate
-$ pip install pybind11-stubgen
+$ pip install --editable ./[dev,tests]
+```
+3. Run the tests:
+```bash
+$ ./pytest-runner
 ```
 ## Running Python Tests in Docker
 To run Python tests in Docker container, based on Ubuntu, use:
