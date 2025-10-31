@@ -8,8 +8,6 @@ add_subdirectory(libredwg)
 add_library(libredwg_cpp ${SOURCES})
 target_link_libraries(libredwg_cpp PUBLIC redwg)
 
-set_target_properties(libredwg_cpp PROPERTIES INSTALL_RPATH "$ORIGIN")
-
 include(GenerateExportHeader)
 set(export_file_name "libredwg_cpp_export_shared.hpp")
 generate_export_header(libredwg_cpp EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/include/${export_file_name}")
@@ -27,6 +25,10 @@ target_include_directories(libredwg_cpp
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/libredwg/src>
 )
 
+# =============================================================================
+# Installation
+
+set_target_properties(libredwg_cpp PROPERTIES INSTALL_RPATH "$ORIGIN")
 
 include(GNUInstallDirs)
 

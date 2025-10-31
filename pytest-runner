@@ -1,5 +1,5 @@
 #!/bin/sh
-
+. env/bin/activate
 cd tests
-mkdir -p ./out_data
-pytest
+mkdir -p out_data
+python -m pytest
