@@ -8,5 +8,3 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 option(BUILD_PYPROJECT "Build project for pyproject" OFF)
 
 add_subdirectory(src)
-add_subdirectory(lib)
-add_subdirectory(bindings)
