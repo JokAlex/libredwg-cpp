@@ -16,25 +16,26 @@ $ pip install --editable ./[dev,tests]
 ```
 3. Run the tests:
 ```bash
-$ ./pytest-runner
+$ cd tests
+$ mkdir -p ./out_data
+$ python -m pytest
 ```
 ## Running Python Tests in Docker
 To run Python tests in Docker container, based on Ubuntu, use:
 ```bash
 $ docker build -t libredwg-cpp .
-$ docker run --rm libredwg-cpp ./pytest-runner
 ```
 ## Usage Example (Python)
 ```python
-import pylibredwgcpp
+import libredwg_cpp
 
 try:
-    document = pylibredwgcpp.Document.open("path-to-dwg-file.dwg")
+    document = libredwg_cpp.Document.open("path-to-dwg-file.dwg")
     print("'path-to-dwg-file.dwg' was successfully opened. It's version:", document.version())
 
     document.write_dxf("path-to-target-dxf-file.dxf")
     print("Convertation to DXF completed successfully.")
-except pylibredwgcpp.Error as error:
+except libredwg_cpp.Error as error:
     print("An error occurred:", error)
 ```
 ## Developer Notes

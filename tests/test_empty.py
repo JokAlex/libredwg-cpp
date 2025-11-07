@@ -1,6 +1,6 @@
-import pylibredwgcpp
+import libredwg_cpp
 
 
 def test_empty():
-    document = pylibredwgcpp.Document.open("./data/empty.dwg")
+    document = libredwg_cpp.Document.open("./data/empty.dwg")
     document.write_dxf("./out_data/empty.dxf")

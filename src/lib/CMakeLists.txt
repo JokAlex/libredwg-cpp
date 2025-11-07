@@ -2,16 +2,16 @@ set(SOURCES
     ./document.cpp
 )
 
-add_library(libredwg_cpp ${SOURCES})
-target_link_libraries(libredwg_cpp PUBLIC redwg)
+add_library(libredwg-cpp ${SOURCES})
+target_link_libraries(libredwg-cpp PUBLIC redwg)
 
 include(GenerateExportHeader)
 set(export_file_name "libredwg_cpp_export_shared.hpp")
-generate_export_header(libredwg_cpp EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/include/${export_file_name}")
+generate_export_header(libredwg-cpp EXPORT_FILE_NAME "${CMAKE_CURRENT_BINARY_DIR}/include/${export_file_name}")
 
 set(LIBREDWG_CPP_PUBLIC_HEADERS_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-target_include_directories(libredwg_cpp
+target_include_directories(libredwg-cpp
     PUBLIC
         $<BUILD_INTERFACE:${LIBREDWG_CPP_PUBLIC_HEADERS_DIR}>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
@@ -25,14 +25,14 @@ target_include_directories(libredwg_cpp
 # =============================================================================
 # Installation
 
-set_target_properties(libredwg_cpp PROPERTIES INSTALL_RPATH "$ORIGIN")
+set_target_properties(libredwg-cpp PROPERTIES INSTALL_RPATH "$ORIGIN")
 
 include(GNUInstallDirs)
 
-install(TARGETS libredwg_cpp EXPORT mylib_export
-    RUNTIME COMPONENT libredwg_cpp
-    LIBRARY COMPONENT libredwg_cpp NAMELINK_COMPONENT libredwg_cpp-dev
-    ARCHIVE COMPONENT libredwg_cpp-dev
-    PUBLIC_HEADER COMPONENT libredwg_cpp-dev
+install(TARGETS libredwg-cpp EXPORT mylib_export
+    RUNTIME COMPONENT libredwg-cpp
+    LIBRARY COMPONENT libredwg-cpp NAMELINK_COMPONENT libredwg-cpp-dev
+    ARCHIVE COMPONENT libredwg-cpp-dev
+    PUBLIC_HEADER COMPONENT libredwg-cpp-dev
         DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )

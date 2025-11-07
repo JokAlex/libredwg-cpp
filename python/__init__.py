@@ -1,1 +1,1 @@
-from .pylibredwgcpp import *  # noqa: F403
+from .libredwg_cpp import *  # noqa: F403
