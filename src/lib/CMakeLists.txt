@@ -18,8 +18,8 @@ target_include_directories(libredwg_cpp
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
     PRIVATE
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/libredwg/src>
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/libredwg/src>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../external/libredwg/src>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../external/libredwg/src>
 )
 
 # =============================================================================

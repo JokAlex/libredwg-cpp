@@ -1,7 +1,7 @@
 import pylibredwgcpp
 
 
-LIBREDWG_DATADIR = "../lib/libredwg/test/test-data/"
+LIBREDWG_DATADIR = "../src/external/libredwg/test/test-data/"
 
 
 def test_example_2000():
