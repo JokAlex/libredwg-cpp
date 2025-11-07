@@ -2,9 +2,6 @@ set(SOURCES
     ./document.cpp
 )
 
-set(LIBREDWG_LIBONLY ON)
-add_subdirectory(libredwg)
-
 add_library(libredwg_cpp ${SOURCES})
 target_link_libraries(libredwg_cpp PUBLIC redwg)
 
