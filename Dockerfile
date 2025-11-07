@@ -13,3 +13,9 @@ RUN set -ex; \
     virtualenv -p python3 --activators bash ./env; \
     ./env/bin/pip install --upgrade pip; \
     ./env/bin/pip install --no-cache-dir .[tests]
+
+# Tests running:
+RUN . env/bin/activate; \
+    cd tests \
+    mkdir -p out_data \
+    python -m pytest

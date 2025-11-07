@@ -5,7 +5,7 @@
 #include <libredwg_cpp/document.hpp>
 #include <libredwg_cpp/error.hpp>
 
-PYBIND11_MODULE(pylibredwgcpp, m) {
+PYBIND11_MODULE(libredwg_cpp, m) {
   m.doc() = "Python bindings for libredwg-cpp";
 
   auto libredwgErrorHandle =
