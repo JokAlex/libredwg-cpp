@@ -38,6 +38,8 @@ try:
 except libredwg_cpp.Error as error:
     print("An error occurred:", error)
 ```
+
+See for more examples in the './examples' directory.
 ## Developer Notes
 
 This project uses pre-commit to enforce code quality standards.
